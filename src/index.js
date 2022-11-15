@@ -11,7 +11,7 @@
  *                  titleStyle: object {} field的title样式
  *                  enable: bool true 是否可用,false有灰色样式
  *                  readOnly: bool false 只读,样式不变,只是不可以做修改
- *                  titleSufix: string ':' title的后缀
+ *                  titleSuffix: string ':' title的后缀
  *                  actions: array [] 按钮
  *                                 [{
  *                                   name: string 按钮的id,点击传递到父组件
@@ -81,18 +81,18 @@
  *    richformRef.current.submit({});
  */
 import PropTypes from 'prop-types';
+import { assocPath, path } from 'ramda';
 import React, {
-  useState,
+  forwardRef,
   useEffect,
   useImperativeHandle,
-  forwardRef,
+  useState,
 } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
-import { path, assocPath } from 'ramda';
+import { ScrollView, StyleSheet, View } from 'react-native';
 // layout 布局
+import Actions from './layouts/actions';
 import Columns from './layouts/columns';
 import Group from './layouts/group';
-import Actions from './layouts/actions';
 // 字段
 import Field from './field';
 
@@ -122,7 +122,8 @@ export default function RichForm(props, ref) {
   const [dirtyVal, setDirtyVal] = useState({});
   // 被依赖的字段,只有当表单更新时,才重置,可以进行直接修改,不会触发更新
   const [dependFields, setDependFields] = useState({});
-  // 上传表单数据 TODO:未完成
+  // 上传表单数据
+  // TODO:未完成
   function submit({ onlyDirty = true, url = '' }) {
     if (errors.length) return;
     let submitData = {};
@@ -133,7 +134,7 @@ export default function RichForm(props, ref) {
     }
   }
   // 获取默认的form值,便于对深度嵌套的字段组件进行管理
-  function getDefalutForm(form) {
+  function getDefaultForm(form) {
     return Object.assign(
       // form的一些默认值
       {
@@ -178,7 +179,7 @@ export default function RichForm(props, ref) {
   }
   // 获取form的布局,需要重复回调,所以采用函数
   function getLayout(form, values) {
-    form = getDefalutForm(form);
+    form = getDefaultForm(form);
     return (
       <View>
         {form.layout.map((initField) => {

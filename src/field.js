@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     flex: 1,
   },
-  titleSufix: {
+  titleSuffix: {
     color: 'grey',
     fontSize: reactT(40),
   },
@@ -82,8 +82,8 @@ export default function Field(props) {
       <View style={[styles.fieldTitleBox, form.titleStyle, field.titleStyle]}>
         <Text style={titleStyle}>{field.title || field.name}</Text>
       </View>
-      <Text style={styles.titleSufix}>
-        {form.titleSufix === undefined ? ':' : form.titleSufix}
+      <Text style={styles.titleSuffix}>
+        {form.titleSuffix === undefined ? ':' : form.titleSuffix}
       </Text>
       <View style={[styles.fieldValue, form.valueStyle, field.valueStyle]}>
         <Component
