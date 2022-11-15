@@ -4,7 +4,7 @@
  * date: 20220722
  */
 import Icon from '~/components/icon';
-import { isNotEmpty, randomNumber } from '@extends/helper';
+import { isNotEmpty, randomNumber } from '~/utils/helper';
 import PropTypes from 'prop-types';
 import React, { useImperativeHandle, useMemo, useState } from 'react';
 import {

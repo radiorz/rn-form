@@ -73,7 +73,7 @@
  *    getErrors: 返回所有的错误
  *
  *  实例
- *    import RichForm from 'rn-form';
+ *    import RichForm from '@voerka/rn-form';
  *    import {useRef} from 'react';
  *
  *    const richformRef = useRef();

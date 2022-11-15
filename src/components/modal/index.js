@@ -3,11 +3,11 @@
  *    由于父组件要调用openModal方法,所以采用react类的构造形式
  *
  *  props
- *   title: $PropTypes.string, // modal的标题,未定义则不显示
- *   children: $PropTypes.any, // modal的内容
- *   closeByModal: $PropTypes.bool, // 是否点击modal关闭
- *   onCheck: $PropTypes.func, // 点击确认按钮执行的事件,未定义则不显示
- *   primaryColor: $PropTypes.string, // 主色调
+ *   title: PropTypes.string, // modal的标题,未定义则不显示
+ *   children: PropTypes.any, // modal的内容
+ *   closeByModal: PropTypes.bool, // 是否点击modal关闭
+ *   onCheck: PropTypes.func, // 点击确认按钮执行的事件,未定义则不显示
+ *   primaryColor: PropTypes.string, // 主色调
  *  methods
  *  events
  *
@@ -23,18 +23,18 @@
  *
  */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  View,
-  Text,
-  StyleSheet,
   Modal,
+  StyleSheet,
+  Text,
   TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 import Button from '~/components/button';
 import Icon from '~/components/icon';
-import { reactT } from '~/utils/getScreenProps';
-
+import { reactH, reactT, reactW, onePx } from '~/utils/getScreenProps';
 const styles = StyleSheet.create({
   modalBox: {
     backgroundColor: 'rgba(0,0,0,.6)',
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   actions: {
     justifyContent: 'space-between',
     borderTopColor: '#dcdfe6',
-    borderTopWidth: $onePx,
+    borderTopWidth: onePx,
     flexDirection: 'row',
   },
   buttons: {
@@ -76,11 +76,11 @@ const styles = StyleSheet.create({
 });
 export default class ModalComponent extends React.Component {
   static propTypes = {
-    title: $PropTypes.string,
-    primaryColor: $PropTypes.string,
-    closeByModal: $PropTypes.bool,
-    children: $PropTypes.any,
-    onCheck: $PropTypes.any,
+    title: PropTypes.string,
+    primaryColor: PropTypes.string,
+    closeByModal: PropTypes.bool,
+    children: PropTypes.any,
+    onCheck: PropTypes.any,
   };
   static defaultProps = {
     title: '',

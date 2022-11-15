@@ -17,7 +17,7 @@ import React from 'react';
 import SvgUri from 'react-native-svg-uri';
 import svgs from '~/assets/svgs/index.js';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { reactT } from '~/utils/reactT';
+import { reactT } from '~/utils/getScreenProps';
 export default function Svg(props) {
   // 兼容 两种icon
   const { name, color = '#fff', size = reactT(60), style } = props;

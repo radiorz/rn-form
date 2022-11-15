@@ -61,7 +61,7 @@ const components = {
 };
 
 export default function Field(props) {
-  // 渲染ield的dom
+  // 渲染 field 的dom
   const field = Object.assign({ schema: {} }, props.field);
   const form = Object.assign({ titleStyle: {} }, props.form);
   const Component = components[field.component]
