@@ -161,7 +161,26 @@ export default function RichForm(props, ref) {
     }
     // 是否有错误
     let isError = false;
-    if (!ajv.compile(field.schema)(fieldVal)) {
+
+    console.log(`ajvValidator started`);
+
+    let ajvValidator;
+    try {
+      // console.log(`field.schema`, field?.schema);
+      console.log(`field.schema`, JSON.stringify(field?.schema));
+      ajvValidator = ajv.compile({});
+    } catch (e) {
+      console.log(`ajvValidator init Error: ${e.stack}`);
+    }
+
+    let isValid;
+    try {
+      isValid = ajvValidator(fieldVal);
+    } catch (e) {
+      console.log(`ajvValidator validate Error: ${e.stack}`);
+    }
+
+    if (!isValid) {
       isError = true;
       setErrors((errors) => {
         if (!errors.includes(field.name)) {
@@ -172,6 +191,9 @@ export default function RichForm(props, ref) {
     } else {
       setErrors((errors) => errors.filter((error) => error !== field.name));
     }
+
+    console.log(`ajvValidator end`);
+
     // 传递值到父组件
     props.onChange(values, field.name, fieldVal);
     // 返回是否有错误

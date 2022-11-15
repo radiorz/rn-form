@@ -2,7 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "react-native-module": ["./src/index"]
+      "react-native-module": ["./src/index"],
+      "~/*": ["./src/*"],
+      // "~/styles/*": ["./src/styles/*"],
+      "~/assets/*": ["./assets/*"],
+      "~/components/*": ["./src/components/*"]
+      // "~/services/*": ["./src/services/*"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

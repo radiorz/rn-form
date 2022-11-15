@@ -15,7 +15,8 @@
  * */
 import React from 'react';
 import SvgUri from 'react-native-svg-uri';
-import svgs from '~/assets/svgs/index.js';
+// FIXME: 不知道为啥不能用 ~assets
+import svgs from '../../assets/svgs/index.js';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { reactT } from '~/utils/getScreenProps';
 export default function Svg(props) {

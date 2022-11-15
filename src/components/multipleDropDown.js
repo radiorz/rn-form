@@ -3,8 +3,6 @@
  * author: xyxu
  * date: 20220722
  */
-import Icon from '~/components/icon';
-import { isNotEmpty, randomNumber } from '~/utils/helper';
 import PropTypes from 'prop-types';
 import React, { useImperativeHandle, useMemo, useState } from 'react';
 import {
@@ -16,7 +14,9 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import Icon from '~/components/icon';
 import { reactH, reactT, reactW } from '~/utils/getScreenProps';
+import { isNotEmpty, randomNumber } from '~/utils/helper';
 
 export default function MultipleDropDown(props = {}) {
   const { myRef, name, value = [], pk = 'id' } = props;

@@ -108,14 +108,14 @@ export default function Picker(props) {
     setError(props.onChange(newVal.join(',')));
   }
   const friendVal = useMemo(() => {
-    let friendVal = '';
+    let _friendVal = '';
     values.forEach((val, index) => {
       if (index !== 0) {
-        friendVal = friendVal + (props.field.connectSymbol || ',');
+        _friendVal = _friendVal + (props.field.connectSymbol || ',');
       }
-      friendVal = friendVal + (dict[val] ? dict[val].text : val);
+      _friendVal = _friendVal + (dict[val] ? dict[val].text : val);
     });
-    return friendVal;
+    return _friendVal;
   }, [values]);
   return (
     <View style={styles.box}>

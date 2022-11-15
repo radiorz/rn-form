@@ -10,7 +10,7 @@ module.exports = {
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
           '~': './src/',
-          '~/assets': './assets/',
+          '~assets': './assets/',
           '~locales': './src/locales/',
         },
       },
