@@ -74,7 +74,7 @@ export default function Upload(props) {
         modalRef.current.closeModal();
       })
       .catch((e) => {
-        _logger.warn(`PICK_IMAGE_FAIL:${e}`);
+        console.warn(`PICK_IMAGE_FAIL:${e}`);
       });
   }
   function openCamera() {
@@ -88,7 +88,7 @@ export default function Upload(props) {
         modalRef.current.closeModal();
       })
       .catch((e) => {
-        _logger.warn(`OPEN_CAMERA_FAIL:${e}`);
+        console.warn(`OPEN_CAMERA_FAIL:${e}`);
       });
   }
   return (
